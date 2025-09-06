@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+</head>
+<body>
+    <h1>Survey</h1>
+    <form action="survey" method="post">
+        <label>Email:</label>
+        <input type="email" name="email" required><br>
+
+        <label>First Name:</label>
+        <input type="text" name="firstName" required><br>
+
+        <label>Last Name:</label>
+        <input type="text" name="lastName" required><br>
+
+        <label>Heard From:</label>
+        <input type="text" name="heardFrom"><br>
+
+        <label>Receive Updates?</label>
+        <input type="checkbox" name="updates" value="Yes"><br>
+
+        <label>Contact Via:</label>
+        <select name="contactVia">
+            <option>Email</option>
+            <option>Phone</option>
+        </select><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
