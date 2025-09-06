@@ -1,0 +1,75 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 22, 2025, 8:13:09 PM
+    Author     : mhuyy
+*/body {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+margin-left: 2em;
+margin-right: 2em;
+}
+h1, h2 {
+color: teal;
+}
+label {
+float: left;
+width: 6em;
+margin-bottom: 0.5em;
+}
+input[type="text"], input[type="email"], input[type="date"] {
+width: 15em;
+margin-left: 0.5em;
+margin-bottom: 0.5em;
+}
+br {
+clear: both;
+}
+#submit {
+margin-left: 0.5em; }
+
+
+.radio-form {
+  display: flex;             /* hiện theo hàng ngang */
+  gap: 30px;            /* Khoảng cách giữa các lựa chọn */
+  white-space: nowrap;  /* Không ngắt dòng chữ */                /* khoảng cách giữa các lựa chọn */
+  align-items: center;       /* căn giữa theo chiều dọc */
+}
+
+.radio-form input[type="radio"] {
+  margin-right: -25px;
+  margin-bottom: 10px;
+  accent-color: #007BFF;    
+}
+
+.radio-form label {
+  cursor: pointer;           /* trỏ chuột dạng tay khi hover */
+  user-select: none;         /* không bôi đen chữ khi click */
+}
+
+
+.checkbox-form {
+  display: block;
+  margin:6px 0;
+  white-space: nowrap;  /* Không ngắt dòng chữ */
+}
+
+.radio-form input[type="checkbox"] {
+    margin-right:6px;
+}
+
+.radio-form label {
+  cursor: pointer;           /* trỏ chuột dạng tay khi hover */
+  user-select: none;         /* không bôi đen chữ khi click */
+}
+
+.row{
+  display:flex; align-items:center; gap:8px;
+  margin:10px 0;
+}
+button{ 
+    padding:4px 10px; 
+}
+
