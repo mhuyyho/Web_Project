@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: exercise1
+    runtime: docker
+    region: singapore   # gần VN
+    plan: free         # thử nghiệm
+    envVars:
+      - key: PORT
+        value: "8080"
