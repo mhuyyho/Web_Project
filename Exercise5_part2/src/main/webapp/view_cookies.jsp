@@ -1,0 +1,32 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Murach's Java Servlets and JSP</title>
+    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+</head>
+<body>
+<h1>Cookies</h1>
+
+<p>Here's a table with all of the cookies that this browser is sending to the current server.</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+  </tr>
+  <!-- Use request.cookies array instead of the EL "cookie" map for portability -->
+  <c:forEach var="ck" items="${pageContext.request.cookies}">
+    <tr>
+      <td><c:out value="${ck.name}"/></td>
+      <td><c:out value="${ck.value}"/></td>
+    </tr>
+  </c:forEach>
+</table>
+
+<p><a href="download?action=viewAlbums">View list of albums</a></p>
+<p><a href="download?action=deleteCookies">Delete all persistent cookies</a></p>
+</body>
+</html>

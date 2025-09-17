@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+h1, h2 {
+    color: teal;
+}
+
+label {
+    float: left;
+    width: 6em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+input[type="text"], input[type="email"] {
+    width: 15em;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+
+br {
+    clear: both;
+}
+
+#submit {
+    margin-left: 0.5em;
+}
+
+.label {
+    display: inline-block;
+    width: 120px;
+    color: #333;
+    font-weight: 600;
+    padding-bottom: 6px;
+}
+
+/* Table dùng chung cho cả Index và Cart */
+table {
+    border-collapse: collapse;
+    width: 860px;
+}
+
+th, td {
+    border: 1px solid #aaa;
+    padding: 8px;
+}
+
+th {
+    background: #f2f2f2;
+}
+
+/* Style cho form */
+form {
+    margin: 0;
+}
+
+/* Style cột giá tiền */
+.price, .num {
+    text-align: right;
+    width: 120px;
+}
