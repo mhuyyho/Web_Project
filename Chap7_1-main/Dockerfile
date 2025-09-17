@@ -1,17 +1,33 @@
-# ----- Build stage (Maven + JDK 17) -----
-FROM maven:3.9-eclipse-temurin-17 AS build
+# Sử dụng OpenJDK 11 với Maven để build
+FROM maven:3.8.4-openjdk-11-slim AS build
+
+# Set working directory
 WORKDIR /app
-COPY . .
-RUN mvn -q -DskipTests clean package
 
-# ----- Run stage (Tomcat 10 + JDK 17) -----
-FROM tomcat:10.1-jdk17-temurin
+# Copy pom.xml và download dependencies
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+# Copy source code
+COPY src ./src
+
+# Build ứng dụng
+RUN mvn clean package -DskipTests
+
+# Sử dụng Tomcat 9 với JRE 11 để chạy ứng dụng
+FROM tomcat:9.0-jre11-slim
+
+# Xóa các ứng dụng mặc định của Tomcat
 RUN rm -rf /usr/local/tomcat/webapps/*
-# Copy WAR vừa build thành ROOT.war để chạy ở "/"
-COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/ROOT.war
 
-# Fix shutdown warnings by disabling shutdown port
-RUN sed -i 's/port="8005"/port="-1"/' /usr/local/tomcat/conf/server.xml
+# Copy WAR file từ build stage
+COPY --from=build /app/target/ch07cart.war /usr/local/tomcat/webapps/ROOT.war
 
+# Expose port
 EXPOSE 8080
-CMD ["catalina.sh","run"]
+
+# Cấu hình JVM options cho Jakarta EE
+ENV JAVA_OPTS="-Djava.awt.headless=true -Dfile.encoding=UTF-8 -server -Xms512m -Xmx1024m"
+
+# Start Tomcat
+CMD ["catalina.sh", "run"]
