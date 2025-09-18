@@ -19,7 +19,7 @@ import murach.data.ProductDB;
  *
  * @author mhuyy
  */
-@WebServlet(name = "CartServlet", urlPatterns = {"/cart"})
+@WebServlet(name = "CartServlet", urlPatterns = {"/cart", "/checkout"})
 public class CartServlet extends HttpServlet {
 
     private Cart getCart(HttpSession session) {
@@ -45,6 +45,7 @@ public class CartServlet extends HttpServlet {
         String action = req.getParameter("action");
         HttpSession session = req.getSession();
         Cart cart = getCart(session);
+        String servletPath = req.getServletPath();
 
         if ("add".equals(action)) {
             String code = req.getParameter("code");
@@ -72,6 +73,11 @@ public class CartServlet extends HttpServlet {
 
         if ("continue".equals(action)) {
             resp.sendRedirect(req.getContextPath() + "/");
+            return;
+        }
+        
+        if ("/checkout".equals(servletPath) || "checkout".equals(action)) {
+            req.getRequestDispatcher("checkout.jsp").forward(req, resp);
             return;
         }
 

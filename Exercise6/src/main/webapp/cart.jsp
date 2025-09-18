@@ -78,6 +78,9 @@
     <button type="submit">Continue Shopping</button>
 </form>
 
-<button disabled style="margin-top:8px;">Checkout</button>
+<form action="${pageContext.request.contextPath}/checkout" method="post" style="margin-top:8px">
+    <input type="hidden" name="action" value="checkout"/>
+    <button type="submit">Checkout</button>
+</form>
 </body>
 </html>
